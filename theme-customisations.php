@@ -1,11 +1,10 @@
 <?php
 /**
- * Plugin Name:       Theme Customisations
- * Description:       A handy little plugin to contain your theme customisation snippets.
- * Plugin URI:        http://github.com/woothemes/theme-customisations
+ * Plugin Name:       Woocommerce Theme Customisations for musician wordpress theme
+ * Description:       Contains woocommerce customizations pertaining to musician theme.
+ * Plugin URI:        https://github.com/slipsnip/musician-woocommerce
  * Version:           1.0.0
- * Author:            WooThemes
- * Author URI:        https://www.woocommerce.com/
+ * Author:            Michael Esch
  * Requires at least: 3.0.0
  * Tested up to:      4.4.2
  *
