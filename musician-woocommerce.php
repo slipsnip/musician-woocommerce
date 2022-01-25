@@ -18,29 +18,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Main Theme_Customisations Class
  *
- * @class Theme_Customisations
+ * @class Musician_Woocommerce_Customisations
  * @version	1.0.0
  * @since 1.0.0
- * @package	Theme_Customisations
+ * @package	Musician_Woocommerce
  */
-final class Theme_Customisations {
+final class Musician_Woocommerce_Customisations {
 
-	/**
-	 * Set up the plugin
-	 */
 	public function __construct() {
-		add_action( 'init', array( $this, 'theme_customisations_setup' ), -1 );
+		add_action( 'init', array( $this, 'musician_woocommerce_customisationssetup' ), -1 );
 		require_once( 'wc-custom/functions.php' );
 	}
 
 	/**
 	 * Setup all the things
 	 */
-	public function theme_customisations_setup() {
-		add_action( 'wp_enqueue_scripts', array( $this, 'theme_customisations_css' ), 999 );
-		add_action( 'wp_enqueue_scripts', array( $this, 'theme_customisations_js' ) );
-		add_filter( 'template_include',   array( $this, 'theme_customisations_template' ), 11 );
-		add_filter( 'wc_get_template',    array( $this, 'theme_customisations_wc_get_template' ), 11, 5 );
+	public function musician_woocommerce_customisations_setup() {
+		add_action( 'wp_enqueue_scripts', array( $this, 'musician_woocommerce_customisations_css' ), 999 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'musician_woocommerce_customisations_js' ) );
+		add_filter( 'template_include',   array( $this, 'musician_woocommerce_customisations_template' ), 11 );
+		add_filter( 'wc_get_template',    array( $this, 'musician_woocommerce_customisations_wc_get_template' ), 11, 5 );
 	}
 
 	/**
@@ -48,7 +45,7 @@ final class Theme_Customisations {
 	 *
 	 * @return void
 	 */
-	public function theme_customisations_css() {
+	public function musician_woocommerce_customisations_css() {
 		wp_enqueue_style( 'custom-css', plugins_url( '/wc-custom/style.css', __FILE__ ) );
 	}
 
@@ -57,7 +54,7 @@ final class Theme_Customisations {
 	 *
 	 * @return void
 	 */
-	public function theme_customisations_js() {
+	public function musician_woocommerce_customisations_js() {
 		wp_enqueue_script( 'custom-js', plugins_url( '/wc-custom/main.js', __FILE__ ));
 	}
 
@@ -71,7 +68,7 @@ final class Theme_Customisations {
 	 * @param  string $template template string.
 	 * @return string $template new template string.
 	 */
-	public function theme_customisations_template( $template ) {
+	public function musician_woocommerce_customisations_template( $template ) {
 		if ( file_exists( untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/wc-custom/templates/' . basename( $template ) ) ) {
 			$template = untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/wc-custom/templates/' . basename( $template );
 		}
@@ -90,7 +87,7 @@ final class Theme_Customisations {
 	 * @return string $located is the newly located template if one was found, otherwise
 	 *                         it is the previously found template.
 	 */
-	public function theme_customisations_wc_get_template( $located, $template_name, $args, $template_path, $default_path ) {
+	public function musician_woocommerce_customisations_wc_get_template( $located, $template_name, $args, $template_path, $default_path ) {
 		$plugin_template_path = untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/wc-custom/templates/woocommerce/' . $template_name;
 
 		if ( file_exists( $plugin_template_path ) ) {
@@ -102,15 +99,15 @@ final class Theme_Customisations {
 } // End Class
 
 /**
- * The 'main' function
+ * Plugin entery point
  *
  * @return void
  */
-function theme_customisations_main() {
-	new Theme_Customisations();
+function musician_woocommerce_customisations_main() {
+	new Musician_Woocommerce_Customisations();
 }
 
 /**
  * Initialise the plugin
  */
-add_action( 'plugins_loaded', 'theme_customisations_main' );
+add_action( 'plugins_loaded', 'musician_woocommerce_customisations_main' );

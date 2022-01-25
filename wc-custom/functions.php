@@ -2,8 +2,8 @@
 /**
  * Functions.php
  *
- * @package  Theme_Customisations
- * @author   WooThemes
+ * @package  Musician_Woocommerce
+ * @author   Michael Esch
  * @since    1.0.0
  */
 
@@ -11,7 +11,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-/**
- * functions.php
- * Add PHP snippets here
- */
