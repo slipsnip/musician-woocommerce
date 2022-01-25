@@ -30,7 +30,7 @@ final class Theme_Customisations {
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'theme_customisations_setup' ), -1 );
-		require_once( 'custom/functions.php' );
+		require_once( 'wc-custom/functions.php' );
 	}
 
 	/**
@@ -49,7 +49,7 @@ final class Theme_Customisations {
 	 * @return void
 	 */
 	public function theme_customisations_css() {
-		wp_enqueue_style( 'custom-css', plugins_url( '/custom/style.css', __FILE__ ) );
+		wp_enqueue_style( 'custom-css', plugins_url( '/wc-custom/style.css', __FILE__ ) );
 	}
 
 	/**
@@ -58,7 +58,7 @@ final class Theme_Customisations {
 	 * @return void
 	 */
 	public function theme_customisations_js() {
-		wp_enqueue_script( 'custom-js', plugins_url( '/custom/custom.js', __FILE__ ), array( 'jquery' ) );
+		wp_enqueue_script( 'custom-js', plugins_url( '/wc-custom/main.js', __FILE__ ), array( 'jquery' ) );
 	}
 
 	/**
@@ -72,8 +72,8 @@ final class Theme_Customisations {
 	 * @return string $template new template string.
 	 */
 	public function theme_customisations_template( $template ) {
-		if ( file_exists( untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/custom/templates/' . basename( $template ) ) ) {
-			$template = untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/custom/templates/' . basename( $template );
+		if ( file_exists( untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/wc-custom/templates/' . basename( $template ) ) ) {
+			$template = untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/wc-custom/templates/' . basename( $template );
 		}
 
 		return $template;
@@ -83,7 +83,7 @@ final class Theme_Customisations {
 	 * Look in this plugin for WooCommerce template overrides.
 	 *
 	 * For example, if you want to override woocommerce/templates/cart/cart.php, you
-	 * can place the modified template in <plugindir>/custom/templates/woocommerce/cart/cart.php
+	 * can place the modified template in <plugindir>/wc-custom/templates/woocommerce/cart/cart.php
 	 *
 	 * @param string $located is the currently located template, if any was found so far.
 	 * @param string $template_name is the name of the template (ex: cart/cart.php).
@@ -91,7 +91,7 @@ final class Theme_Customisations {
 	 *                         it is the previously found template.
 	 */
 	public function theme_customisations_wc_get_template( $located, $template_name, $args, $template_path, $default_path ) {
-		$plugin_template_path = untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/custom/templates/woocommerce/' . $template_name;
+		$plugin_template_path = untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/wc-custom/templates/woocommerce/' . $template_name;
 
 		if ( file_exists( $plugin_template_path ) ) {
 			$located = $plugin_template_path;
