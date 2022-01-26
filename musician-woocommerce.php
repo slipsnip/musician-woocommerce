@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 final class Musician_Woocommerce_Customisations {
 
 	public function __construct() {
-		add_action( 'init', array( $this, 'musician_woocommerce_customisationssetup' ), -1 );
+		add_action( 'init', array( $this, 'musician_woocommerce_customisations_setup' ), -1 );
 		require_once( 'wc-custom/functions.php' );
 	}
 
