@@ -64,14 +64,10 @@ function musician_woocommerce_after_shop_loop_item_title()
 
 	$card_body = <<<END
 	<div class='container'>
-		<div class="row">
-			<div class="col d-flex justify-content-center align-items-center">
-				<div class='card-text'>$price</div>
-			</div>
-			<div class="col">
-				<a href='$url' class='btn btn-primary'>$add_to_cart</a>
-			</div>
-		</div>
+	<div class='card-text d-flex justify-content-center fs-3'>$price</div>	
+	<div class="card-footer text-muted d-flex justify-content-center">
+	<a href='$url' class='btn btn-primary'>$add_to_cart</a>
+	</div>
 	</div></div>
 	END;
 	echo $card_body;
