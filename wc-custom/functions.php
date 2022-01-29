@@ -43,10 +43,13 @@ function musician_woocommerce_shop_loop_item_title()
 	$link = esc_url($link);
 	$title_text = $product->get_title();
 	$item_title = <<<END
-	<div class="card-body">	
+	<div class="card-header">
 	<a href="$link">
 	<h5 class="card-title display-6">$title_text</h5>
 	</a>
+	</div>
+	<div class="card-body">	
+
 	END;
 	echo $item_title;
 }
